@@ -81,4 +81,15 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>benergy10</id>
+            <url>https://repo.benergy10.dev/repository/minecraft/</url>
+        </repository>
+        <snapshotRepository>
+            <id>benergy10</id>
+            <url>https://repo.benergy10.dev/repository/minecraft-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
