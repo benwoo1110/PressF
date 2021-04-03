@@ -1,0 +1,5 @@
+name: PressF
+version: ${project.version}
+main: dev.benergy10.pressf.PressF
+api-version: 1.13
+authors: [ benwoo1110 ]

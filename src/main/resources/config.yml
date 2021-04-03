@@ -1,0 +1,25 @@
+# ___                     ___
+# | _ \ _ _  ___  ___ ___ | __|
+# |  _/| '_|/ -_)(_-<(_-< | _|
+# |_|  |_|  \___|/__//__/ |_|
+# -----------------------------
+# Discord: https://discord.gg/Be59ehc
+# Github: https://github.com/benwoo1110/PressF.git
+# Paypal: https://paypal.me/benergy10
+
+
+# A list of commands to run when pressing F.
+# You can customise this to any runnable commands on your server.
+trigger-actions:
+  - 'console:title %player% times 40 120 60'
+  - 'console:title %player% subtitle {"text": "Thank you for paying respects!"}'
+
+# Indicates how frequent can a user trigger the custom action when pressing F.
+# Time unit is in milliseconds, i.e. '1 second = 1000 milliseconds'.
+cooldown: 1000
+
+# This is a list of worlds you do not want pressing F to trigger the custom actions.
+disabled-worlds:
+#  - world1
+#  - world1_nether
+#  - world1_the_end
