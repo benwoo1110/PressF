@@ -13,6 +13,7 @@
 trigger-actions:
   - 'console:title %player% times 40 120 60'
   - 'console:title %player% subtitle {"text": "Thank you for paying respects!"}'
+  - 'console:title %player% title {"text": ":)"}'
 
 # Indicates how frequent can a user trigger the custom action when pressing F.
 # Time unit is in milliseconds, i.e. '1 second = 1000 milliseconds'.

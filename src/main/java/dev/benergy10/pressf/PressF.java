@@ -10,14 +10,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public final class PressF extends JavaPlugin implements Listener {
 
-    private Map<OfflinePlayer, Date> coolDownTracker;
+    private Map<OfflinePlayer, Long> coolDownTracker;
     private CommandProvider commandProvider;
     private CommandGroup onPressCommands;
 
@@ -49,6 +48,7 @@ public final class PressF extends JavaPlugin implements Listener {
             return;
         }
         event.setCancelled(true);
+        setLastTriggerTime(player);
         this.onPressCommands.executeAll(player);
     }
 
@@ -57,11 +57,15 @@ public final class PressF extends JavaPlugin implements Listener {
     }
 
     public long getMillisecondsSinceTrigger(OfflinePlayer player) {
-        return new Date().getTime() - this.getLastTriggerTime(player).getTime();
+        return System.currentTimeMillis() - this.getLastTriggerTime(player);
     }
 
-    public Date getLastTriggerTime(OfflinePlayer player) {
-        return this.coolDownTracker.computeIfAbsent(player, p -> new Date(0));
+    public long getLastTriggerTime(OfflinePlayer player) {
+        return this.coolDownTracker.computeIfAbsent(player, p -> 0L);
+    }
+
+    public void setLastTriggerTime(OfflinePlayer player) {
+        this.coolDownTracker.put(player, System.currentTimeMillis());
     }
 
     public long getCoolDown() {
