@@ -47,7 +47,9 @@ public final class PressF extends JavaPlugin implements Listener {
         if (!this.canTriggerF(player)) {
             return;
         }
-        event.setCancelled(true);
+        if (!this.getDoItemSwap()) {
+            event.setCancelled(true);
+        }
         setLastTriggerTime(player);
         this.onPressCommands.executeAll(player);
     }
@@ -70,6 +72,10 @@ public final class PressF extends JavaPlugin implements Listener {
 
     public long getCoolDown() {
         return this.getConfig().getLong("cooldown", 1000);
+    }
+
+    public boolean getDoItemSwap() {
+        return this.getConfig().getBoolean("do-item-swap", true);
     }
 
     public List<String> getDisabledWorlds() {

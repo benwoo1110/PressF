@@ -19,6 +19,8 @@ trigger-actions:
 # Time unit is in milliseconds, i.e. '1 second = 1000 milliseconds'.
 cooldown: 1000
 
+do-item-swap: true
+
 # This is a list of worlds you do not want pressing F to trigger the custom actions.
 disabled-worlds:
 #  - world1
